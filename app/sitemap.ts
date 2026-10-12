@@ -1,9 +1,11 @@
 import type { MetadataRoute } from "next";
+import { siteUrl } from "@/lib/site";
+
+export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://www.entornosfuncionales.com";
   return ["", "/nosotros", "/servicios", "/proyectos", "/contacto"].map((path) => ({
-    url: `${base}${path || "/"}`,
+    url: `${siteUrl}${path}/`,
     changeFrequency: "monthly",
     priority: path === "" ? 1 : 0.7,
   }));

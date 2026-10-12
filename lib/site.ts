@@ -1,3 +1,5 @@
+export const siteUrl = "https://dgm-cloud.github.io/entornos-funcionales-001";
+
 export const company = {
   name: "Entornos Funcionales",
   legal: "Entornos Funcionales Reconstrucción & Acabados",

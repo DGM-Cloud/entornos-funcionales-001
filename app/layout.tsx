@@ -3,7 +3,7 @@ import { Archivo } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsappButton } from "@/components/whatsapp-button";
-import { company } from "@/lib/site";
+import { company, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -13,14 +13,14 @@ const archivo = Archivo({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.entornosfuncionales.com"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Entornos Funcionales · Reconstrucción y sistemas",
     template: "%s · Entornos Funcionales",
   },
   description:
     "Reconstrucción, acabados, climatización, protección contra incendios y electricidad industrial en Lima. Para empresas, instituciones y proyectos residenciales.",
-  icons: { icon: "/media/favicon.png" },
+  icons: { icon: `${process.env.PAGES_BASE_PATH ?? ""}/media/favicon.png` },
   openGraph: {
     title: "Entornos Funcionales",
     description:
@@ -34,7 +34,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "GeneralContractor",
   name: company.legal,
-  url: "https://www.entornosfuncionales.com",
+  url: siteUrl,
   email: company.email,
   telephone: company.phones.map((phone) => phone.label),
   address: {
